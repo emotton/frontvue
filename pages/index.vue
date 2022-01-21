@@ -13,7 +13,7 @@
 
 
 <script>
-import menu from './menu/index.vue'
+import menu from '@/pages/menu/index.vue'
 
 export default {
   name: 'IndexPage',

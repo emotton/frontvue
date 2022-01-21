@@ -32,7 +32,24 @@ export default {
     '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
+    // https://vite.nuxtjs.org/
+    'nuxt-vite',
   ],
+  vite: {
+     /* options for vite */
+     build: true,
+     ssr: false,
+     optimizeDeps: {
+      exclude: [
+        'date-fns'
+      ]
+    },
+    // ssr: true // enable unstable server-side rendering for development (false by default)
+    // experimentWarning: false // hide experimental warning message (disabled by default for tests)
+    vue: {
+      /* options for vite-plugin-vue2 */
+    },
+  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [],
