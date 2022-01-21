@@ -1,6 +1,7 @@
-<template lang="pug">
-  h1
-    Daniel
+<template  lang="pug">
+  main
+    h1 Daniel
+    NuxtLink(to="/") Voltar
 </template>
 
 <script>

@@ -1,5 +1,7 @@
-<template>
-  <h1>Teste</h1>
+<template  lang="pug">
+  main
+    h1 Teste
+    NuxtLink(to="/login") login
 </template>
 
 <script>
