@@ -1,22 +1,45 @@
-<template lang="pug">
-  .form-container
-    .form-white
-      .form-logo
-        img.logo(
-          height="32"
-          width="120px"
-          src="https://firebasestorage.googleapis.com/v0/b/beyond-quoti.appspot.com/o/beyond%2F2022%2F01%2F8312a28e877edc8b64d95f5cefa5f42a.png?alt=media&token=cf507e4a-a883-40e0-be84-22e886b39c5c"
-        )
-      v-row( justify="center" align="center")
-        v-col( cols="12" sm="8" md="6")
-          v-card( class="logo py-4 d-flex justify-center")
-            v-card-title( class="headline")
-              p.text-h2 Bem-vindo!
-              p.font-weight-black Black text.
-            v-card-actions
-            v-spacer
-            NuxtLink(to="/") Voltar
-
+<template>
+  <v-app class="form-container">
+    <v-main class="d-flex align-center justify-center">
+      <v-container class="form-white white">
+        <v-img
+          class="logo"
+          lazy-src="https://picsum.photos/id/11/10/6"
+          max-height="80"
+          max-width="148"
+          src="https://picsum.photos/id/11/500/300"
+        ></v-img>
+        <h2 class="text-bemvindo font-weight-medium grey--text text--darken-4">Bem Vindo!</h2>
+        <p class="text-info font-weight-normal grey--text text--darken-3">Acesse a sua conta e conecte-se ao mundo das APIs.</p>
+        <v-form
+          ref="form"
+          v-model="valid"
+          lazy-validation
+        >
+          <v-text-field
+            v-model="email"
+            :rules="emailRules"
+            label="E-mail"
+            required
+          ></v-text-field>
+          <v-text-field
+            v-model="senha"
+            :rules="senhaRules"
+            label="Senha"
+            required
+          ></v-text-field>
+          <v-btn
+            :disabled="!valid"
+            color="success"
+            class="mr-4"
+            @click="validate"
+          >
+            Entrar
+          </v-btn>
+        </v-form>
+      </v-container>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
@@ -57,30 +80,29 @@ export default {
 
 <style scoped>
   .form-container{
-    display: flex;
-    width: 100%;
-    min-height: 100vh;
     background: #E5E5E5;
-    justify-content: center;
   }
 
   .form-white{
     align-self: center;
     width: 600px;
-    height: 768px;
-    background: #FFFFFF;
+    height: 100vh;
     padding-top:80px;
     padding-left:103px;
     padding-right:103px;
   }
 
-  .form-logo{
+  .logo{
     display:flex;
     justify-content:center;
     margin-bottom:72px;
   }
 
-  .content{
+  .text-bemvindo{
+    font-size:2rem;
+  }
 
+  .text-info{
+    margin-bottom:20px;
   }
 </style>
