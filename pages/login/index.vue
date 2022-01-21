@@ -1,10 +1,30 @@
-<template  lang="pug">
-  main
-    h1 Daniel
-    NuxtLink(to="/") Voltar
+<template lang="pug">
+  .form-container
+    .form-white
+      .form-logo
+        img.logo(
+          height="32"
+          width="120px"
+          src="https://firebasestorage.googleapis.com/v0/b/beyond-quoti.appspot.com/o/beyond%2F2022%2F01%2F8312a28e877edc8b64d95f5cefa5f42a.png?alt=media&token=cf507e4a-a883-40e0-be84-22e886b39c5c"
+        )
+      p.text-h2 Bem-vindo!
+      p.font-weight-black Black text.
 </template>
 
 <script>
+function isValidEmail(email) {
+  const reg =
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  return reg.test(email)
+}
+
+function isExist(route){
+   if(route.query.emailNotExist){
+     return false;
+   }
+   return true;
+}
+
 export default {
   data() {
     return {
@@ -27,89 +47,32 @@ export default {
 }
 </script>
 
-<style>
-  .qt-toast--info-dark{
-    display: none !important;
-  }
- .v-application, .v-application [class*=text-]{
-    font-family: "Roboto" !important;
-  }
-  .v-input--dense .v-label{
-    color: black !important;
-  }
-  .v-input--dense fieldset{
-    border: 1px solid rgba(0, 0, 0, .1);
-  }
-</style>
 <style scoped>
-.btnWhite{
-  background-color: white !important;
-}
-.btnBack{
-  margin-top: 110px;
-  text-align: center;
-}
-.btnBack button{
-  border: 1px solid rgba(0, 0, 0, .1);
-}
-.titleErro{
-  font-family: Roboto;
-  width: 346px;
-}
-.titleErro h1{
-  line-height: 1;
-  margin-bottom: 18px;
-}
-
-.withOutRec{
-  display: none;
-}
-
-.withRec{
-  display: block;
-}
-
-.rememberPass{
-  padding: 0px;
-  padding-right: 13px;
-  margin-top: -10px;
-}
-
-.form-container {
-  display: flex;
-  width: 100%;
-  height: 100%;
-}
-.form {
+  .form-container{
     display: flex;
-    flex-direction: column;
-    height: 100%;
-    max-width: 600px;
     width: 100%;
-    z-index: 1;
-    padding: 72px 100px;
-    margin: auto;
+    min-height: 100vh;
+    background: #E5E5E5;
+    justify-content: center;
+  }
 
-}
+  .form-white{
+    align-self: center;
+    width: 600px;
+    height: 768px;
+    background: #FFFFFF;
+    padding-top:80px;
+    padding-left:103px;
+    padding-right:103px;
+  }
 
-.form--all_screen{
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    overflow: auto;
-    align-items: center;
+  .form-logo{
+    display:flex;
+    justify-content:center;
+    margin-bottom:72px;
+  }
 
-}
+  .content{
 
-.logo {
-  margin-bottom: 40px;
-  cursor: pointer;
-}
-
-.content {
-  flex: 1 1 0%;
-  display: flex;
-  -webkit-box-align: center;
-  align-items: center;
-}
+  }
 </style>
