@@ -7,12 +7,18 @@
             h1 Teste
           v-card-actions
           v-spacer
-          NuxtLink(to="/login") login
+          menu
    
 </template>
 
+
 <script>
+import menu from './menu/index.vue'
+
 export default {
   name: 'IndexPage',
+  components:{
+    menu
+  }
 }
 </script>
