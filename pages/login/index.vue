@@ -2,40 +2,89 @@
   <v-app class="form-container">
     <v-main class="d-flex align-center justify-center">
       <v-container class="form-white white">
-        <v-img
-          class="logo"
-          lazy-src="https://picsum.photos/id/11/10/6"
-          max-height="80"
-          max-width="148"
-          src="https://picsum.photos/id/11/500/300"
-        ></v-img>
-        <h2 class="text-bemvindo font-weight-medium grey--text text--darken-4">Bem Vindo!</h2>
-        <p class="text-info font-weight-normal grey--text text--darken-3">Acesse a sua conta e conecte-se ao mundo das APIs.</p>
+        <v-row no-gutters>
+          <v-col
+            cols="12"
+            class="d-flex justify-center"
+          >
+            <v-img
+              class="logo"
+              lazy-src="https://picsum.photos/id/11/10/6"
+              max-height="32"
+              max-width="120"
+              src="https://picsum.photos/id/11/500/300"
+            ></v-img>
+          </v-col>
+        </v-row>
+        <v-row no-gutters>
+          <v-col
+            cols="12"
+            class="d-flex justify-center"
+          >
+            <h2 class="text-bemvindo font-weight-medium grey--text text--darken-4">Bem Vindo!</h2>
+          </v-col>
+        </v-row>
+        <v-row no-gutters>
+          <v-col
+            cols="12"
+            class="d-flex justify-center"
+          >
+            <p class="text-info font-weight-normal grey--text text--darken-3">Acesse a sua conta e conecte-se ao mundo das APIs.</p>
+          </v-col>
+        </v-row>
         <v-form
           ref="form"
           v-model="valid"
           lazy-validation
         >
-          <v-text-field
-            v-model="email"
-            :rules="emailRules"
-            label="E-mail"
-            required
-          ></v-text-field>
-          <v-text-field
-            v-model="senha"
-            :rules="senhaRules"
-            label="Senha"
-            required
-          ></v-text-field>
-          <v-btn
-            :disabled="!valid"
-            color="success"
-            class="mr-4"
-            @click="validate"
-          >
-            Entrar
-          </v-btn>
+          <v-row no-gutters>
+            <v-col
+              cols="12"
+            >
+
+                <v-text-field
+                  v-model="email"
+                  :rules="emailRules"
+                  label="E-mail"
+                  required
+                  outlined
+                  dense
+                ></v-text-field>
+            </v-col>
+          </v-row>
+          <v-row no-gutters>
+            <v-col
+              cols="12"
+            >
+                <v-text-field
+                  v-model="senha"
+                  :rules="senhaRules"
+                  label="Senha"
+                  required
+                  outlined
+                  dense
+                ></v-text-field>
+            </v-col>
+          </v-row>
+          <v-row no-gutters>
+            <v-col
+              cols="12"
+              class="mb-5 d-flex justify-end"
+            >
+                <a href="#">Esqueci minha senha</a>
+            </v-col>
+          </v-row>
+          <v-row no-gutters>
+            <v-col
+              cols="12"
+            >
+                <v-btn
+                  block
+                  color="primary"
+                  elevation="2"
+                >Entrar</v-btn>
+            </v-col>
+          </v-row>
         </v-form>
       </v-container>
     </v-main>
@@ -43,19 +92,6 @@
 </template>
 
 <script>
-function isValidEmail(email) {
-  const reg =
-    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-  return reg.test(email)
-}
-
-function isExist(route){
-   if(route.query.emailNotExist){
-     return false;
-   }
-   return true;
-}
-
 export default {
   data() {
     return {
@@ -75,6 +111,11 @@ export default {
       }
     }
   },
+  methods:{
+    handleEntry(){
+      alert("Entrar no login")
+    }
+  }
 }
 </script>
 
